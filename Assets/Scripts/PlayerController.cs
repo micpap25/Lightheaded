@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //horizontal movement
-        rb.velocity += new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0f);
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
 
     }
 
