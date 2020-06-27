@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     if (Input.GetKeyDown(KeyCode.Space) numberOfBalloons > 0)
+     if (Input.GetKeyDown(KeyCode.Space) && numberOfBalloons > 0)
         {
            numberOfBalloons--;
         }
@@ -49,21 +49,19 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.gameObject.CompareTag("Balloon"))
+        if (col.gameObject.CompareTag("Collectable"))
         {
-            Destroy(other.gameObject);
-            numberOfBalloons++;
+            col.gameObject.GetComponent<Collectable>().collide();
         }
 
-        if (other.gameObject.CompareTag("Enemy"))
+        if (col.gameObject.CompareTag("Enemy"))
         {
             Destroy(this.gameObject);
         }
-        if (other.gameObject.CompareTag("UpperBoundary"))
+        if (col.gameObject.CompareTag("UpperBoundary"))
         {
-           
             numberOfBalloons--;
         }
 

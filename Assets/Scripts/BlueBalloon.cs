@@ -2,25 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlueBalloon : Balloon
+public class BlueBalloon : MonoBehaviour, Collectable
 {
-
-    public bool collide(gameObject obj)
+    public void collide()
     {
-        return obj != null;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerController>().numberOfBalloons++;
+        Destroy(gameObject);
     }
-
-    /*
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    */
 }
