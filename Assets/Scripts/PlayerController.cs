@@ -29,17 +29,20 @@ public class PlayerController : MonoBehaviour
         {
            numBalloons--;
         }
+
         float value = -1.5f + (.75f * numBalloons);
-        if (isGrounded)
+        if (!isGrounded)
         {
-            value = Mathf.Max(value, 0);
+            rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
         }
 
         if (rb.velocity.y < value) {
             rb.velocity = new Vector2 (rb.velocity.x, value);
         }
-
-
 
         //horizontal movement and flipping the sprite
         float newxvel = Input.GetAxis("Horizontal") * moveSpeed;
