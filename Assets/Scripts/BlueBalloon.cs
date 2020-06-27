@@ -2,8 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockyash : MonoBehaviour
+public class BlueBalloon : Balloon
 {
+
+    public bool collide(gameObject obj)
+    {
+        return obj != null;
+    }
+
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +22,5 @@ public class blockyash : MonoBehaviour
     {
         
     }
+    */
 }

@@ -2,8 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class blockyash : MonoBehaviour
+public class Collectable : MonoBehaviour
 {
+    string name;
+
+    public Collectable(string n) 
+    {
+        name = n;
+    }
+
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +23,5 @@ public class blockyash : MonoBehaviour
     {
         
     }
+    */
 }
