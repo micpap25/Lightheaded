@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-     public Rigidbody2D rb;
-     public int numBalloons;
+    public Rigidbody2D rb;
+    public int numBalloons;
+    public int moveSpeed = 1f;;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.y < value) {
             rb.velocity = new Vector2 (rb.velocity.x, value);
         }
+
+        //horizontal movement
+        rb.velocity += new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0f);
 
     }
 
