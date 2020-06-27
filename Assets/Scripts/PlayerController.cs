@@ -23,23 +23,10 @@ public class PlayerController : MonoBehaviour
         {
            numberOfBalloons--;
         }
-
-     if (numberOfBalloons==0)
-    {
-        Physics2D.gravity=new Vector2(0f, -9.81f);
-    }
-     else if (numberOfBalloons==1)
-     {
-          Physics2D.gravity=new Vector2(0f, -7.35f);
-     }
-     else if (numberOfBalloons==2)
-     {
-          Physics2D.gravity=new Vector2(0f, 0f);
-     }
-
-     else if (numberOfBalloons==3){
-         Physics2D.gravity=new Vector2(0f,2.45f);
-     }      
+        float value = -1.5f + (.75f * numBalloons);
+        if (rb.velocity.y < value) {
+            rb.velocity = new Vector2 (rb.velocity.x, value);
+            }
 
     }
 
