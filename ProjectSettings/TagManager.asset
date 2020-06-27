@@ -7,6 +7,7 @@ TagManager:
   - Collectable
   - Enemy
   - UpperBoundary
+  - Ground
   layers:
   - Default
   - TransparentFX

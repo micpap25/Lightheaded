@@ -5,33 +5,47 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float timeStartedLerping 
-    private float lerpTime;
+    private float lastLerp;
+    private bool returning;
+    private float maxChange;
+    private float dist;
+    private float dt;
     public Rigidbody2D rb;
-    void Start()
-    
-    {
-        rb = GetComponent<Rigidbody2D>();
-        public Vector2 endpos;
-        public Vector2 startpos;
-    }
+    public Vector2 endpos;
+    public Vector2 startpos;
+    public int travelTime;
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 xvelocity= Lerp(startpos,endpos, timeSinceStarted).x;
-        
-        rb.velocity=new Vector2 (xvelocity,rb.velocity.y);
-        timeSinceStarted+=Time.deltaTime;
+        if (returning)
+            dist = Vector2.Distance(transform.position, startpos);
+        else
+            dist = Vector2.Distance(transform.position, endpos);
+        dt = Mathf.Max(dist*Time.deltaTime/travelTime, maxChange);
+
+        if (returning)
+        {
+            lastLerp += dt;
+            transform.position = Vector3.Lerp(startpos, endpos, lastLerp);
+        } 
+        else
+        {
+            lastLerp -= dt;
+            transform.position = Vector3.Lerp(startpos, endpos, lastLerp);
+        }
+
+        if (returning && Vector2.Distance(startpos, transform.position) < Vector2.kEpsilon)
+        {
+            returning = false;
+        }
+
+        if (!returning && Vector2.Distance(endpos, transform.position) < Vector2.kEpsilon)
+        {
+            returning = true;
+        }
 
 
-        
     }
     
-    public Vector2 Lerp(Vector2 start, Vector2 end, float timeStartedLerping, float lerpTime=1){
-        float timeSinceStarted= Time.time - timeStartedLerping;
-        float percentage =timeSinceStarted/lerpTime;
-        Vector2 result = Vector2.Lerp(start,end, percentage);
-        return result;
-    }
 }

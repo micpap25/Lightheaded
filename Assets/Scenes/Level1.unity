@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 129852531}
   m_Layer: 0
   m_Name: Tiles
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1755,6 +1755,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1728754464827951987, guid: d9fe21375f6b87f47a2bb889f4dd6a1d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 629f1745a6f46594e9060d31aa341eaf, type: 2}
     - target: {fileID: -734502736148606174, guid: d9fe21375f6b87f47a2bb889f4dd6a1d,
         type: 3}
       propertyPath: m_BodyType
@@ -1764,6 +1769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -734502736148606174, guid: d9fe21375f6b87f47a2bb889f4dd6a1d,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7300625119871303816, guid: d9fe21375f6b87f47a2bb889f4dd6a1d,
         type: 3}
