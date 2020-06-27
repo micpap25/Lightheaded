@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class FlyingPointEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     private float lastLerp;
