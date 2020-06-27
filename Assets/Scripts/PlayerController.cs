@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public PolygonCollider2D pc;
     public int numBalloons;
     public float moveSpeed = 1f;
+    private bool isFacingRight = true;
     
 
     // Start is called before the first frame update
@@ -40,9 +41,15 @@ public class PlayerController : MonoBehaviour
 
 
 
-        //horizontal movement
+        //horizontal movement and flipping the sprite
+        float newxvel = Input.GetAxis("Horizontal") * moveSpeed;
+        if ((isFacingRight && newxvel < 0) || (!isFacingRight && newxvel > 0))  
+        {
+            isFacingRight = !isFacingRight;
+            transform.Rotate(new Vector3(0, 180, 0));
+        }
 
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, rb.velocity.y);
+        rb.velocity = new Vector2(newxvel, rb.velocity.y);
 
     }
 
