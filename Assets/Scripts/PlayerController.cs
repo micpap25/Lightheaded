@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public int numBalloons;
-    public int moveSpeed = 1f;;
+    public float moveSpeed = 1f;
     
 
     // Start is called before the first frame update
