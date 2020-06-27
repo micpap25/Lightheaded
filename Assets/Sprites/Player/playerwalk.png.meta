@@ -1,34 +1,31 @@
 fileFormatVersion: 2
-guid: 5247877dfb901e9478ab6474995f1c6b
+guid: b22abc9bf85f8a44e8064a60e030dea7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2576076798003599944
-    second: foliage_0
+      213: -7837067952068110680
+    second: playerwalk_0
   - first:
-      213: 1050813691987297744
-    second: foliage_1
+      213: 1336537687144679471
+    second: playerwalk_1
   - first:
-      213: -4182697492691306973
-    second: tileset 1_2
+      213: -610511496057404210
+    second: playerwalk_2
   - first:
-      213: -5649661135088733581
-    second: tileset 1_3
+      213: 5289913425522338551
+    second: playerwalk_3
   - first:
-      213: -472409929599022749
-    second: tileset 1_4
+      213: -88564366142157657
+    second: playerwalk_4
   - first:
-      213: -7642695013803092085
-    second: tileset 1_5
+      213: 7848161611021367178
+    second: playerwalk_5
   - first:
-      213: 3350846475400602848
-    second: tileset 1_6
+      213: -355009425370568380
+    second: playerwalk_6
   - first:
-      213: -8970894295460975583
-    second: tileset 1_7
-  - first:
-      213: -6148499254855959845
-    second: tileset 1_8
+      213: 7817968148536858583
+    second: playerwalk_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,7 +90,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -105,7 +102,7 @@ TextureImporter:
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
-    crunchedCompression: 0
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -114,13 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: foliage_0
+      name: playerwalk_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 192
+        x: 0
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b5aed40dcfef3cd0800000000000000
-      internalID: -2576076798003599944
+      spriteID: 8a6d16c58342d3390800000000000000
+      internalID: -7837067952068110680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: foliage_1
+      name: playerwalk_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 192
-        width: 31
-        height: 29
+        x: 32
+        y: 0
+        width: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d505044c7d359e00800000000000000
-      internalID: 1050813691987297744
+      spriteID: f284e27f1f55c8210800000000000000
+      internalID: 1336537687144679471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_2
+      name: playerwalk_2
       rect:
         serializedVersion: 2
-        x: 8
-        y: 152
+        x: 64
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 326b7319ac214f5c0800000000000000
-      internalID: -4182697492691306973
+      spriteID: ec4c43a67070787f0800000000000000
+      internalID: -610511496057404210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_3
+      name: playerwalk_3
       rect:
         serializedVersion: 2
-        x: 8
-        y: 112
+        x: 96
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 372b4bd712f5891b0800000000000000
-      internalID: -5649661135088733581
+      spriteID: 7fa24dcbb3c896940800000000000000
+      internalID: 5289913425522338551
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_4
+      name: playerwalk_4
       rect:
         serializedVersion: 2
-        x: 168
-        y: 152
+        x: 128
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36902e50ca9a179f0800000000000000
-      internalID: -472409929599022749
+      spriteID: 7acc650ad2b55cef0800000000000000
+      internalID: -88564366142157657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_5
+      name: playerwalk_5
       rect:
         serializedVersion: 2
-        x: 168
-        y: 112
+        x: 160
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b871e9fa061bfe590800000000000000
-      internalID: -7642695013803092085
+      spriteID: a8739c467654aec60800000000000000
+      internalID: 7848161611021367178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_6
+      name: playerwalk_6
       rect:
         serializedVersion: 2
-        x: 168
-        y: 72
+        x: 192
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,20 +251,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e46f17ad19908e20800000000000000
-      internalID: 3350846475400602848
+      spriteID: 4492fdcfec0c21bf0800000000000000
+      internalID: -355009425370568380
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset 1_7
+      name: playerwalk_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
+        x: 224
+        y: 0
         width: 32
-        height: 32
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,29 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c68790b2bf08380800000000000000
-      internalID: -8970894295460975583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset 1_8
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bda7e8cf0842caaa0800000000000000
-      internalID: -6148499254855959845
+      spriteID: 7d79bd61c900f7c60800000000000000
+      internalID: 7817968148536858583
       vertices: []
       indices: 
       edges: []
