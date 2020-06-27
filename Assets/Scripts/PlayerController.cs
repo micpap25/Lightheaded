@@ -6,27 +6,25 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
      public Rigidbody2D rb;
-     public int numberOfBalloons;
+     public int numBalloons;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        numberOfBalloons=0;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-     if (Input.GetKeyDown(KeyCode.Space) && numberOfBalloons > 0)
+     if (Input.GetKeyDown(KeyCode.Space) && numBalloons > 0)
         {
-           numberOfBalloons--;
+           numBalloons--;
         }
         float value = -1.5f + (.75f * numBalloons);
         if (rb.velocity.y < value) {
             rb.velocity = new Vector2 (rb.velocity.x, value);
-            }
+        }
 
     }
 
@@ -43,7 +41,7 @@ public class PlayerController : MonoBehaviour
         }
         if (col.gameObject.CompareTag("UpperBoundary"))
         {
-            numberOfBalloons--;
+            numBalloons--;
         }
 
     }

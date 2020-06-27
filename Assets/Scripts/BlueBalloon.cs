@@ -11,7 +11,7 @@ public class BlueBalloon : MonoBehaviour, Collectable
     public void collide()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerController>().numberOfBalloons++;
+        player.GetComponent<PlayerController>().numBalloons++;
         Destroy(gameObject);
     }
 }
