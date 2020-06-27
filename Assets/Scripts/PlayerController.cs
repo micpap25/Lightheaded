@@ -5,19 +5,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-     public Rigidbody rb;
+     public Rigidbody2D rb;
      public int numberOfBalloons;
-     public Transform transform;
-     public bool alive;
-
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        transform= GetComponent<Transform>();
-        alive=true;
+        rb = GetComponent<Rigidbody2D>();
         numberOfBalloons=0;
         
     }

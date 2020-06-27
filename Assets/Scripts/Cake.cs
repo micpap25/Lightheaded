@@ -21,7 +21,7 @@ public class Cake : MonoBehaviour, Collectable
 
     private IEnumerator Load()
     {
-        AsyncOperation async = Application.LoadLevelAsync("Level" + transitionTo);
+        AsyncOperation async = SceneManager.LoadSceneAsync("Level" + transitionTo);
         while (!async.isDone)
         {
             yield return null;
