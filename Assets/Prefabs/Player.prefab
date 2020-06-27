@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -1728754464827951987}
   - component: {fileID: -734502736148606174}
   - component: {fileID: -5725861223057205651}
+  - component: {fileID: 7302775983062035413}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -153,3 +154,22 @@ MonoBehaviour:
   pc: {fileID: 0}
   numBalloons: 0
   moveSpeed: 1
+--- !u!95 &7302775983062035413
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8152652687908530226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4d2c1c72b98f3a42b07e36ed59308c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

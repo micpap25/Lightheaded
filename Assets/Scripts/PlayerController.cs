@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public PolygonCollider2D pc;
+    public Animator anim;
     public int numBalloons;
     public float moveSpeed = 1f;
     private bool isFacingRight = true;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         pc = GetComponent<PolygonCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(new Vector3(0, 180, 0));
         }
 
+        anim.SetBool("xmove", newxvel != 0);
         rb.velocity = new Vector2(newxvel, rb.velocity.y);
 
     }
