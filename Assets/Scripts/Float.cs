@@ -21,6 +21,6 @@ public class Float : MonoBehaviour
     void Update()
     {
         transform.position = new Vector2(origpos.x, origpos.y + (Mathf.Sin(x)/yboundingfactor));
-        x += speed *Time.deltaTime;
+        x += speed * Time.deltaTime;
     }
 }
