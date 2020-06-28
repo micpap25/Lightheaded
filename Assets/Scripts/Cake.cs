@@ -28,11 +28,21 @@ public class Cake : MonoBehaviour, Collectable
             writer.WriteLine(transitionTo);
             writer.Close();
         }
-
-        AsyncOperation async = SceneManager.LoadSceneAsync("Level" + transitionTo);
-        while (!async.isDone)
+        if (transitionTo == 6)
         {
-            yield return null;
+            AsyncOperation async = SceneManager.LoadSceneAsync("Thankyou");
+            while (!async.isDone)
+            {
+                yield return null;
+            }
+        }
+        else
+        {
+            AsyncOperation async = SceneManager.LoadSceneAsync("Level" + transitionTo);
+            while (!async.isDone)
+            {
+                yield return null;
+            }
         }
     }
 }

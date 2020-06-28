@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
 
         if (col.gameObject.CompareTag("Enemy"))
         {
+            bool safe = false;
             for (int i = 0; i < balloons.Count; i++)
             {
                 if (balloons[i].Equals("Yellow"))
@@ -101,11 +102,12 @@ public class PlayerController : MonoBehaviour
                         aud.Stop();
                     aud.Play();
                     AdjustBalloons();
+                    safe = true;
                     break;
                 }
-                isAlive = false;
-
             }
+            if (!safe)
+                isAlive = false;
         }
         if (col.gameObject.CompareTag("Candle"))
         {
