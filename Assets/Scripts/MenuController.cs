@@ -10,10 +10,10 @@ using System.IO;
 public class MenuController : MonoBehaviour
 {
     string path = "Assets/Resources/level.txt";
-    
+
 
   void Start () {
-        
+
     }
 
   public void loadFirstLvl(){
@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour
     Application.Quit();
   }
 
-  public void ResumeGame() 
+  public void ResumeGame()
     {
         StreamReader inp_stm = new StreamReader(path);
 
@@ -35,5 +35,14 @@ public class MenuController : MonoBehaviour
 
         Debug.Log("resumed!");
         SceneManager.LoadScene("Level" + maxlvl);
+    }
+
+    public void loadCredits(){
+        Debug.Log ("You have clicked the CreditButton!");
+        SceneManager.LoadScene("Credit");
+    }
+    public void loadMenu(){
+        Debug.Log ("You have clicked the BackButton!");
+        SceneManager.LoadScene("Menu");
     }
 }
