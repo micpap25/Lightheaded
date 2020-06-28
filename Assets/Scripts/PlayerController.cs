@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         {
             for (int i = 0; i < balloons.Count; i++)
             {
-                if (balloons[i].GetType().Equals("Yellow"))
+                if (balloons[i].Equals("Yellow"))
                 {
                     Destroy(col.gameObject);
                     balloons.RemoveAt(i);
@@ -109,10 +109,11 @@ public class PlayerController : MonoBehaviour
             bool safe = false;
             for (int i = 0; i < balloons.Count; i++)
             {
-                if (!balloons[i].GetType().Equals("Red"))
+                if (!balloons[i].Equals("Red"))
                 {
                     balloons.RemoveAt(i);
                     AdjustBalloons();
+                    i--;
                 }
                 else
                 {

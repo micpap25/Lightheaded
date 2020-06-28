@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -3234491959243196532}
   m_Layer: 0
   m_Name: PurpleBalloon
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTime: 5
-  player: {fileID: 0}
 --- !u!114 &-3234491959243196532
 MonoBehaviour:
   m_ObjectHideFlags: 0
