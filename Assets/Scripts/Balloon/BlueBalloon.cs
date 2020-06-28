@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlueBalloon : MonoBehaviour, Collectable
 {
+    public bool tutorial;
+    public GameObject enabling;
     public void FixedUpdate()
     {
         //visual stuff while not collected, floating up and down, particles
@@ -12,6 +14,10 @@ public class BlueBalloon : MonoBehaviour, Collectable
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerController>().numBalloons++;
+        if (tutorial)
+        {
+            enabling.SetActive(true);
+        }
         Destroy(gameObject);
     }
 }
