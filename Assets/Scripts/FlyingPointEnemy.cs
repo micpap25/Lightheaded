@@ -5,14 +5,15 @@ using UnityEngine;
 public class FlyingPointEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float lastLerp;
-    public bool returning;
-    public float maxChange;
-    public float dist;
-    public float dt;
+    private float lastLerp;
+    private bool returning;
+    private float dist;
+    private float dt;
     public Vector2 endpos;
     public Vector2 startpos;
     public int travelTime;
+    public float maxChange;
+    public float distToReturn;
 
     // Update is called once per frame
     void Update()
@@ -34,14 +35,16 @@ public class FlyingPointEnemy : MonoBehaviour
             transform.position = Vector3.Lerp(startpos, endpos, lastLerp);
         }
 
-        if (returning && Vector2.Distance(startpos, transform.position) < .5)
+        if (returning && Vector2.Distance(startpos, transform.position) < distToReturn)
         {
             returning = false;
+            transform.Rotate(new Vector3(0, 180, 0));
         }
 
-        if (!returning && Vector2.Distance(endpos, transform.position) < .5)
+        if (!returning && Vector2.Distance(endpos, transform.position) < distToReturn)
         {
             returning = true;
+            transform.Rotate(new Vector3(0, 180, 0));
         }
 
 

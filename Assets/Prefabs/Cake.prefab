@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2742179014055533137}
   - component: {fileID: 6093908392665906763}
   - component: {fileID: -5511267482205132860}
+  - component: {fileID: -3839373235417732476}
   m_Layer: 0
   m_Name: Cake
   m_TagString: Collectable
@@ -129,3 +130,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionTo: 1
+--- !u!114 &-3839373235417732476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7823366455101400903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90792b67094084644b334924ece9a397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yboundingfactor: 4
+  speed: 0.03
