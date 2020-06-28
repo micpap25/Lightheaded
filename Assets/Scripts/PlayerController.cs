@@ -8,10 +8,15 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public BoxCollider2D pc;
     public Animator anim;
+    public AudioSource aud;
     public ArrayList balloons;
     public float moveSpeed = 1f;
     private bool isFacingRight = true;
-    
+
+    public GameObject blueBalloon;
+    public GameObject yellowBalloon;
+    public GameObject redBalloon;
+    public GameObject purpleBalloon;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +35,13 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("grounded", isGrounded);
 
 
-
         if (Input.GetKeyDown(KeyCode.Space) && balloons.Count > 0)
         {
+            if (aud.isPlaying)
+                aud.Stop();
             balloons.RemoveAt(0);
+            AdjustBalloons();
+            aud.Play();
         }
 
         float value = -1.5f + (.75f * balloons.Count);
@@ -84,6 +92,41 @@ public class PlayerController : MonoBehaviour
         {
             balloons.RemoveAt(0);
         }
-
     }
+
+    public void AdjustBalloons()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+        for (int i = 0; i < balloons.Count; i++)
+        {
+            if (i == 0)
+            {
+                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+            }
+            if (i == 1)
+            {
+                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+            }
+            if (i == 2)
+            {
+                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+            }
+        }
+        
+    }
+
+    public GameObject getBalloon(string bal)
+    {
+        if (bal.Equals("Blue"))
+            return blueBalloon;
+        if (bal.Equals("Red"))
+            return redBalloon;
+        if (bal.Equals("Yellow"))
+            return yellowBalloon;
+        return purpleBalloon;
+    }
+
 }
