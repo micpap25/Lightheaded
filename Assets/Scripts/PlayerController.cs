@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         pc = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        aud = GetComponent<AudioSource>();
         balloons = new ArrayList();
     }
 
@@ -46,13 +47,10 @@ public class PlayerController : MonoBehaviour
 
         float value = -1.5f + (.75f * balloons.Count);
         
-        /*
         if (balloons.Count == 0)
             value *= 2;
-        */
-        //Maybe use this line? Consider it.
        
-        rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .05f));
+        rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
 
         if (rb.velocity.y < value) {
             rb.velocity = new Vector2 (rb.velocity.x, value);
@@ -83,10 +81,32 @@ public class PlayerController : MonoBehaviour
             {
                 if (balloons[i].GetType().Equals("Yellow"))
                 {
-                    // TODO: what? if they have a yellow balloon, kill enemy and the balloon
+                    Destroy(col.gameObject);
+                    balloons.RemoveAt(i);
+                    AdjustBalloons();
+                    break;
+                }
+                Destroy(this.gameObject);
+            }
+            Destroy(gameObject);
+        }
+        if (col.gameObject.CompareTag("Candle"))
+        {
+            bool safe = false;
+            for (int i = 0; i < balloons.Count; i++)
+            {
+                if (!balloons[i].GetType().Equals("Red"))
+                {
+                    balloons.RemoveAt(i);
+                    AdjustBalloons();
+                }
+                else
+                {
+                    safe = true;
                 }
             }
-            Destroy(this.gameObject);
+            if (!safe)
+                Destroy(gameObject);
         }
         if (col.gameObject.CompareTag("UpperBoundary"))
         {
@@ -104,15 +124,15 @@ public class PlayerController : MonoBehaviour
         {
             if (i == 0)
             {
-                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+                Instantiate(getBalloon((string)balloons[i]), new Vector2(transform.position.x, transform.position.y + .5f), transform.rotation, transform);
             }
             if (i == 1)
             {
-                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+                Instantiate(getBalloon((string)balloons[i]), new Vector2(transform.position.x + .25f, transform.position.y + .25f), new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z - .25f, 1), transform);
             }
             if (i == 2)
             {
-                Instantiate(getBalloon((string)balloons[i]), transform.position, transform.rotation, transform);
+                Instantiate(getBalloon((string)balloons[i]), new Vector2(transform.position.x - .25f, transform.position.y + .25f), new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z + .25f, 1), transform);
             }
         }
         

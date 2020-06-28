@@ -9,6 +9,7 @@ TagManager:
   - UpperBoundary
   - Ground
   - Music
+  - Candle
   layers:
   - Default
   - TransparentFX

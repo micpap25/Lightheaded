@@ -121,7 +121,16 @@ MonoBehaviour:
   rb: {fileID: 0}
   pc: {fileID: 0}
   anim: {fileID: 0}
-  moveSpeed: 1.2
+  aud: {fileID: 0}
+  moveSpeed: 1.3
+  blueBalloon: {fileID: 6325415525600610056, guid: 869e6641bcedd2747809a3e71cc90362,
+    type: 3}
+  yellowBalloon: {fileID: 16638591290523662, guid: 133974a00cdd10747816f418d7ed7bbe,
+    type: 3}
+  redBalloon: {fileID: 7261590090157715230, guid: 6e273420b0afea343b1f478c0c1c4df2,
+    type: 3}
+  purpleBalloon: {fileID: 9089199733867755845, guid: 85a7f013136741a42bac874d7a460d43,
+    type: 3}
 --- !u!95 &7302775983062035413
 Animator:
   serializedVersion: 3
