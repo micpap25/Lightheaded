@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         float value = -1.5f + (.75f * numBalloons);
         if (!isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
+            rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .05f));
         }
         else
         {
