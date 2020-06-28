@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -61,16 +60,6 @@ public class PlayerController : MonoBehaviour
 
         anim.SetBool("xmove", !(newxvel == 0 && !Input.GetButton("Horizontal")));
         rb.velocity = new Vector2(newxvel, rb.velocity.y);
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine(Reset());
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            StartCoroutine(ReturnToMenu());
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -97,22 +86,4 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
-    private IEnumerator Reset()
-    {
-        AsyncOperation async = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-    }
-    private IEnumerator ReturnToMenu()
-    {
-        AsyncOperation async = SceneManager.LoadSceneAsync("Menu");
-        while (!async.isDone)
-        {
-            yield return null;
-        }
-    }
-
 }
