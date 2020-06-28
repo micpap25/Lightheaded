@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PolygonCollider2D pc;
     public Animator anim;
-    public int numBalloons;
+    public Collectable[] balloons;
     public float moveSpeed = 1f;
     private bool isFacingRight = true;
     
@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
         bool isGrounded = Physics2D.Raycast(transform.position - new Vector3(pc.bounds.extents.x, pc.bounds.extents.y, 0), Vector2.down, .1f, LayerMask.GetMask("Ground")).collider ||
            Physics2D.Raycast(transform.position + new Vector3(pc.bounds.extents.x, -pc.bounds.extents.y, 0), Vector2.down, .1f, LayerMask.GetMask("Ground")).collider;
 
-        if (Input.GetKeyDown(KeyCode.Space) && numBalloons > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && balloons.Length > 0)
         {
-           numBalloons--;
+            balloons[balloons.Length - 1] = null;
         }
 
-        float value = -1.5f + (.75f * numBalloons);
+        float value = -1.5f + (.75f * balloons.Length);
         if (!isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
@@ -78,11 +78,18 @@ public class PlayerController : MonoBehaviour
 
         if (col.gameObject.CompareTag("Enemy"))
         {
+            for (int i = 0; i < balloons.Length; i++)
+            {
+                if (balloons[i].GetType.Equals("Yellow"))
+                {
+                    // TODO: what? if they have a yellow balloon, kill enemy and the balloon
+                }
+            }
             Destroy(this.gameObject);
         }
         if (col.gameObject.CompareTag("UpperBoundary"))
         {
-            numBalloons--;
+            balloons[balloons.Length - 1] = null;
         }
 
     }

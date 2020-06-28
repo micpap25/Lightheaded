@@ -13,7 +13,10 @@ public class YellowBalloon : MonoBehaviour, Collectable
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PlayerController>().numBalloons++;
         Destroy(gameObject);
+
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+
+        Destroy(gameObject);
+        Destroy(enemy);
     }
 }
-
-// modify for yellow, this is just blue
