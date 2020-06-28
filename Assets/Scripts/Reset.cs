@@ -30,6 +30,12 @@ public class Reset : MonoBehaviour
     }
     private IEnumerator ReturnToMenu()
     {
+        GameObject[] music = GameObject.FindGameObjectsWithTag("Music");
+        foreach (GameObject mus in music)
+        {
+            Destroy(mus);
+        }
+
         AsyncOperation async = SceneManager.LoadSceneAsync("Menu");
         while (!async.isDone)
         {
