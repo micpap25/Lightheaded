@@ -97,6 +97,9 @@ public class PlayerController : MonoBehaviour
                 {
                     Destroy(col.gameObject);
                     balloons.RemoveAt(i);
+                    if (aud.isPlaying)
+                        aud.Stop();
+                    aud.Play();
                     AdjustBalloons();
                     break;
                 }
@@ -112,6 +115,9 @@ public class PlayerController : MonoBehaviour
                 if (!balloons[i].Equals("Red"))
                 {
                     balloons.RemoveAt(i);
+                    if (aud.isPlaying)
+                        aud.Stop();
+                    aud.Play();
                     AdjustBalloons();
                     i--;
                 }
