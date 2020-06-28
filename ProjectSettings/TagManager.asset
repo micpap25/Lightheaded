@@ -53,6 +53,9 @@ TagManager:
   - name: Balloon
     uniqueID: 1232450041
     locked: 0
+  - name: Candle
+    uniqueID: 2620550301
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -43,6 +43,11 @@ public class MenuController : MonoBehaviour
     }
     public void loadMenu(){
         Debug.Log ("You have clicked the BackButton!");
+        GameObject[] music = GameObject.FindGameObjectsWithTag("Music");
+        foreach(GameObject mus in music)
+        {
+            Destroy(mus);
+        }
         SceneManager.LoadScene("Menu");
     }
 }
