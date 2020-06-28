@@ -23,19 +23,10 @@ public class Cake : MonoBehaviour, Collectable
     private IEnumerator Load()
     {
         string path = "Assets/Resources/level.txt";
-        if (File.Exists(path))
+        using (TextWriter writer = new StreamWriter(path, false))
         {
-            StreamReader rd= new StreamReader(path);
-            highestLevel = rd.Read();
-            rd.Close();
-        }
-        if (highestLevel < transitionTo)
-        {
-            using (TextWriter writer = new StreamWriter(path, false))
-            {
-                writer.WriteLine(transitionTo);
-                writer.Close();
-            }
+            writer.WriteLine(transitionTo);
+            writer.Close();
         }
 
         AsyncOperation async = SceneManager.LoadSceneAsync("Level" + transitionTo);
