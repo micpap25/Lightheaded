@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public PolygonCollider2D pc;
     public Animator anim;
-    public Collectable[] balloons;
+    public ArrayList balloons;
     public float moveSpeed = 1f;
     private bool isFacingRight = true;
     
@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour
         bool isGrounded = Physics2D.Raycast(transform.position - new Vector3(pc.bounds.extents.x, pc.bounds.extents.y, 0), Vector2.down, .1f, LayerMask.GetMask("Ground")).collider ||
            Physics2D.Raycast(transform.position + new Vector3(pc.bounds.extents.x, -pc.bounds.extents.y, 0), Vector2.down, .1f, LayerMask.GetMask("Ground")).collider;
 
-        if (Input.GetKeyDown(KeyCode.Space) && balloons.Length > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && balloons.Count > 0)
         {
-            balloons[balloons.Length - 1] = null;
+            balloons.RemoveAt(0);
         }
 
-        float value = -1.5f + (.75f * balloons.Length);
+        float value = -1.5f + (.75f * balloons.Count);
         if (!isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .05f));
@@ -78,9 +78,9 @@ public class PlayerController : MonoBehaviour
 
         if (col.gameObject.CompareTag("Enemy"))
         {
-            for (int i = 0; i < balloons.Length; i++)
+            for (int i = 0; i < balloons.Count; i++)
             {
-                if (balloons[i].GetType.Equals("Yellow"))
+                if (balloons[i].GetType().Equals("Yellow"))
                 {
                     // TODO: what? if they have a yellow balloon, kill enemy and the balloon
                 }
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         }
         if (col.gameObject.CompareTag("UpperBoundary"))
         {
-            balloons[balloons.Length - 1] = null;
+            balloons.RemoveAt(0);
         }
 
     }

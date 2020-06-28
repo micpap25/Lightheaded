@@ -13,7 +13,8 @@ public class BlueBalloon : MonoBehaviour, Collectable
     public void collide()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerController>().numBalloons++;
+        if (player.GetComponent<PlayerController>().balloons.Count <= 3)
+            player.GetComponent<PlayerController>().balloons.Add("Blue");
         if (tutorial)
         {
             enabling.SetActive(true);

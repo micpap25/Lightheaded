@@ -14,8 +14,8 @@ public class PurpleBalloon : MonoBehaviour, Collectable
     }
     public void collide()
     {
-        
-        player.GetComponent<PlayerController>().numBalloons++;
+        if (player.GetComponent<PlayerController>().balloons.Count <= 3)
+            player.GetComponent<PlayerController>().balloons.Add("Purple");
         Destroy(gameObject);
     }
 

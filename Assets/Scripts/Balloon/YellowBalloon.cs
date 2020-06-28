@@ -11,7 +11,8 @@ public class YellowBalloon : MonoBehaviour, Collectable
     public void collide()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerController>().numBalloons++;
+        if (player.GetComponent<PlayerController>().balloons.Count <= 3)
+            player.GetComponent<PlayerController>().balloons.Add("Yellow");
         Destroy(gameObject);
 
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
