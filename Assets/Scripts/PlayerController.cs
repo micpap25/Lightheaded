@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ArrayList balloons;
     public float moveSpeed = 1f;
     private bool isFacingRight = true;
+    private bool isAlive = true;
 
     public GameObject blueBalloon;
     public GameObject yellowBalloon;
@@ -31,42 +32,54 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         bool isGrounded = Physics2D.Raycast(transform.position - new Vector3(pc.bounds.extents.x, pc.bounds.extents.y, 0), Vector2.down, .2f, LayerMask.GetMask("Ground")).collider ||
            Physics2D.Raycast(transform.position + new Vector3(pc.bounds.extents.x, -pc.bounds.extents.y, 0), Vector2.down, .2f, LayerMask.GetMask("Ground")).collider;
         anim.SetBool("grounded", isGrounded);
+        anim.SetBool("alive", isAlive);
 
-
-        if (Input.GetKeyDown(KeyCode.Space) && balloons.Count > 0)
+        if (isAlive)
         {
-            
-            balloons.RemoveAt(0);
-            AdjustBalloons();
-            if (aud.isPlaying)
-                aud.Stop();
-            aud.Play();
+
+            if (Input.GetKeyDown(KeyCode.Space) && balloons.Count > 0)
+            {
+
+                balloons.RemoveAt(0);
+                AdjustBalloons();
+                if (aud.isPlaying)
+                    aud.Stop();
+                aud.Play();
+            }
+
+            float value = -1.5f + (.75f * balloons.Count);
+
+            if (balloons.Count == 0)
+                value *= 2;
+
+            rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
+
+            if (rb.velocity.y < value)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, value);
+            }
+
+            //horizontal movement and flipping the sprite
+            float newxvel = Input.GetAxis("Horizontal") * moveSpeed;
+            if ((isFacingRight && newxvel < 0) || (!isFacingRight && newxvel > 0))
+            {
+                isFacingRight = !isFacingRight;
+                transform.Rotate(new Vector3(0, 180, 0));
+            }
+
+            anim.SetBool("xmove", !(newxvel == 0 && !Input.GetButton("Horizontal")));
+            rb.velocity = new Vector2(newxvel, rb.velocity.y);
+        }
+        else {
+            rb.velocity = new Vector2(0, -3);
+            if (isGrounded)
+                DestroyBalloons();
         }
 
-        float value = -1.5f + (.75f * balloons.Count);
-        
-        if (balloons.Count == 0)
-            value *= 2;
-       
-        rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));
-
-        if (rb.velocity.y < value) {
-            rb.velocity = new Vector2 (rb.velocity.x, value);
-        }
-
-        //horizontal movement and flipping the sprite
-        float newxvel = Input.GetAxis("Horizontal") * moveSpeed;
-        if ((isFacingRight && newxvel < 0) || (!isFacingRight && newxvel > 0))  
-        {
-            isFacingRight = !isFacingRight;
-            transform.Rotate(new Vector3(0, 180, 0));
-        }
-
-        anim.SetBool("xmove", !(newxvel == 0 && !Input.GetButton("Horizontal")));
-        rb.velocity = new Vector2(newxvel, rb.velocity.y);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -87,9 +100,9 @@ public class PlayerController : MonoBehaviour
                     AdjustBalloons();
                     break;
                 }
-                Destroy(this.gameObject);
+                isAlive = false;
+
             }
-            Destroy(gameObject);
         }
         if (col.gameObject.CompareTag("Candle"))
         {
@@ -107,11 +120,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             if (!safe)
-                Destroy(gameObject);
-        }
-        if (col.gameObject.CompareTag("UpperBoundary"))
-        {
-            balloons.RemoveAt(0);
+                isAlive = false;
         }
     }
 
@@ -139,7 +148,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public GameObject getBalloon(string bal)
+    private GameObject getBalloon(string bal)
     {
         if (bal.Equals("Blue"))
             return blueBalloon;
@@ -150,4 +159,11 @@ public class PlayerController : MonoBehaviour
         return purpleBalloon;
     }
 
+    private void DestroyBalloons()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
 }
