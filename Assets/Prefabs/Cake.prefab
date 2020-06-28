@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yboundingfactor: 4
-  speed: 0.03
+  speed: 1
