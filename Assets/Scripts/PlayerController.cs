@@ -38,10 +38,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && balloons.Count > 0)
         {
-            if (aud.isPlaying)
-                aud.Stop();
+            
             balloons.RemoveAt(0);
             AdjustBalloons();
+            if (aud.isPlaying)
+                aud.Stop();
             aud.Play();
         }
 
