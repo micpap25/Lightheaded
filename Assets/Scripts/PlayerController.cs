@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
             float value = -1.5f + (.75f * balloons.Count);
 
-            if (balloons.Count == 0)
+            if (balloons.Count == 0 || balloons.Count == 3)
                 value *= 2;
 
             rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y - .1f));

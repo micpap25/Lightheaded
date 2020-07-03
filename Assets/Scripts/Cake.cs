@@ -22,7 +22,7 @@ public class Cake : MonoBehaviour, Collectable
 
     private IEnumerator Load()
     {
-        string path = "Assets/Resources/level.txt";
+        string path = Directory.GetCurrentDirectory() + "/level.txt";
         using (TextWriter writer = new StreamWriter(path, false))
         {
             writer.WriteLine(transitionTo);

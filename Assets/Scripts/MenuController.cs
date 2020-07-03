@@ -9,7 +9,7 @@ using System.IO;
 
 public class MenuController : MonoBehaviour
 {
-    string path = "Assets/Resources/level.txt";
+    string path = Directory.GetCurrentDirectory() + "/level.txt";
 
   public void loadFirstLvl(){
       Debug.Log ("You have clicked the NewGameButton!");
